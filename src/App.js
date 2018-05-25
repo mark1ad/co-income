@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './Components/Header/Header';
 import About from './Components/About/About';
+import ShowByYear from './Components/ByYear/ByYear';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div className="App">
           <Header />
           <Route path="/about" component={About} />
+          <Route path="/byyear" component={ShowByYear} />
         </div>
       </HashRouter>
     );
