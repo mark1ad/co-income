@@ -15,6 +15,7 @@ rules:
   indent:
     - error
     - 2
+    - SwitchCase: 1
   linebreak-style:
     - error
     - unix
@@ -26,5 +27,6 @@ rules:
     - always
 globals:
   # Used in tests
+  describe: true
   it: true
   expect: true
