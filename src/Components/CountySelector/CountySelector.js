@@ -6,11 +6,11 @@ const CountySelector = () => {
     <div>
       County CountySelector
     </div>
-  )
-}
+  );
+};
 
 CountySelector.propTypes = {
   name: PropTypes.string.isRequired
-}
+};
 
 export default CountySelector;

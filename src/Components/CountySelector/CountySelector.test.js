@@ -17,8 +17,10 @@ describe('CountySelector PropTypes', () => {
   });
 
   afterEach(() => {
+    /* eslint-disable no-console */
     console.error.restore();
-  })
+    /* eslint-enable no-console */
+  });
 
   it('throws an error if name is missing', () => {
 
