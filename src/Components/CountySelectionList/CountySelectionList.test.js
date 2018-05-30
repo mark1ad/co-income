@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ByCounty from './ByCounty';
+import CountySelectionList from './CountySelectionList';
 
-describe('ByCounty', () => {
+describe('CountySelectionList', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<ByCounty />, div);
+    ReactDOM.render(<CountySelectionList />, div);
   });
 });

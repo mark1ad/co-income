@@ -14,6 +14,7 @@ class App extends Component {
       <HashRouter>
         <div className="App">
           <Header />
+          <Route path="/" component={ShowByCounty} />
           <Route path="/about" component={About} />
           <Route path="/byyear" component={ShowByYear} />
           <Route path="/byCounty" component={ShowByCounty} />
