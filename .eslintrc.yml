@@ -32,3 +32,4 @@ globals:
   expect: true
   beforeEach: true
   afterEach: true
+  require: true

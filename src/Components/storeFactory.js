@@ -4,6 +4,7 @@ import { Counties } from '../Reducers/CountiesReducer';
 
 let initStore = {};
 
+/* eslint-disable no-unused-vars */
 const logger = store => next => action  => {
   /* eslint-disable no-console */
   // console.groupCollapsed("dispatching ", action.type)
@@ -16,6 +17,7 @@ const logger = store => next => action  => {
   // console.groupEnd();
   /* eslint-enable no-console */
 };
+/* eslint-enable no-unused-vars */
 
 const reducers = {
   Counties

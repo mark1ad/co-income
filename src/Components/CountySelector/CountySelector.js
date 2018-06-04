@@ -1,10 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-const CountySelector = () => {
+const CountySelector = (props) => {
   return (
     <div>
-      County CountySelector
+      {props.name}
     </div>
   );
 };
