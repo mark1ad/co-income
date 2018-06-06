@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { Counties } from '../Reducers/CountiesReducer';
+import { County } from '../Reducers/CountyReducer';
 
 let initStore = {};
 
@@ -20,6 +21,7 @@ const logger = store => next => action  => {
 /* eslint-enable no-unused-vars */
 
 const reducers = {
+  County,
   Counties
 };
 

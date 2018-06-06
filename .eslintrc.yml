@@ -33,3 +33,4 @@ globals:
   beforeEach: true
   afterEach: true
   require: true
+  jest: true

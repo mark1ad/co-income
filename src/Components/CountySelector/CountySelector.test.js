@@ -7,7 +7,7 @@ let mockSubmitFunction;
 
 beforeEach(() => {
   mockSubmitFunction = jest.fn();
-})
+});
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -55,5 +55,5 @@ describe('CountySelector PropTypes', () => {
     const div = document.createElement('div');
     ReactDOM.render(<CountySelector name="name" submit={mockSubmitFunction} />, div);
     expect(stub.notCalled).toEqual(true);
-  })
+  });
 });

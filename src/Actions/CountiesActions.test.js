@@ -9,7 +9,7 @@ it('action setCounties empty list', () => {
   });
 });
 
-it('action setBoards', () => {
+it('action setCounties', () => {
   const counties = [ 'Adams', 'Alamosa' ];
   const action = setCounties(counties);
   expect(action.type).toEqual( SET_COUNTIES );

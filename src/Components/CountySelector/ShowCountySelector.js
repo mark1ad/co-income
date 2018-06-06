@@ -1,15 +1,15 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import CountySelector from './CountySelector';
+import { setCounty } from '../../Actions/CountyActions';
 
 const mapStateToProps = (state, props) => {
   return { name: props.name };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   let submit = (county) => {
-    console.log("ShowCountySelector submit ", county);
-
+    dispatch(setCounty(county));
   };
   return {submit: submit};
 };
