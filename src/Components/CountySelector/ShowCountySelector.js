@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import CountySelector from './CountySelector';
-import { setCounty } from '../../Actions/CountyActions';
+import { GetCountyData } from '../../Helpers/COIncomeData';
 
 const mapStateToProps = (state, props) => {
   return { name: props.name };
@@ -9,7 +9,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => {
   let submit = (county) => {
-    dispatch(setCounty(county));
+    GetCountyData(county, dispatch);
   };
   return {submit: submit};
 };

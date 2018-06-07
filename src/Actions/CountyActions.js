@@ -1,7 +1,8 @@
 import { SET_COUNTY } from './ActionTypes.js';
 
-export const setCounty = (county) =>
+export const setCounty = (county, years) =>
   ({
     type: SET_COUNTY,
-    county: county
+    county: county,
+    years: years
   });
