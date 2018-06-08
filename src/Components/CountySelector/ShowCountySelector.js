@@ -8,7 +8,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  let submit = (county) => {
+  const submit = (county) => {
     GetCountyData(county, dispatch);
   };
   return {submit: submit};

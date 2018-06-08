@@ -27,6 +27,7 @@ rules:
     - always
 globals:
   global: true
+  process: true
   # Used in tests
   describe: true
   it: true

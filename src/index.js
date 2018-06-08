@@ -13,8 +13,9 @@ import registerServiceWorker from './registerServiceWorker';
 import storeFactory from './Components/storeFactory';
 
 export const store = storeFactory();
+const baseURL = 'https://data.colorado.gov/resource/udxx-a7kq';
 const axiosInstance = axios.create({
-  baseURL: 'https://data.colorado.gov/resource/udxx-a7kq'
+  baseURL: baseURL
 });
 global.axiosInstance = axiosInstance;
 
