@@ -1,9 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import sinon from 'sinon';
 
 import GraphContainer from './GraphContainer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<GraphContainer />, div);
+describe('GraphContainer', () => {
+  let stub;
+
+  beforeEach(() => {
+    stub = sinon.stub(console, 'error');
+  });
+
+  afterEach(() => {
+    /* eslint-disable no-console */
+    console.error.restore();
+    /* eslint-enable no-console */
+  });
+
+  it('renders without crashing', () => {
+    shallow(<GraphContainer county={{}} />);
+  });
+
+  it('throws an error if county is missing', () => {
+    shallow(<GraphContainer />);
+    expect(stub.calledOnce).toEqual(true);
+    expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `county` is marked as required in `GraphContainer`, but its value is `undefined`./);
+  });
+
+  it('does not throw error if county is included', () => {
+    shallow(<GraphContainer county={{}} />);
+    expect(stub.notCalled).toEqual(true);
+  });
 });

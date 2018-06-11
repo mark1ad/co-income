@@ -1,13 +1,14 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 
 
 import ShowCountySelectionList from
   '../CountySelectionList/ShowCountySelectionList';
-import GraphContainer from
-  '../GraphContainer/GraphContainer';
+import ShowGraphContainer from
+  '../GraphContainer/ShowGraphContainer';
 
-const ByCounty = () => {
+const ByCounty = (props) => {
   return (
     <div className="by-county container">
       <Grid>
@@ -16,12 +17,16 @@ const ByCounty = () => {
             <ShowCountySelectionList />
           </Col>
           <Col xs={8}>
-            <GraphContainer />
+            <ShowGraphContainer county={props.County} />
           </Col>
         </Row>
       </Grid>
     </div>
   );
+};
+
+ByCounty.propTypes = {
+  County: PropTypes.object.isRequired
 };
 
 export default ByCounty;

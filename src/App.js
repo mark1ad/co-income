@@ -5,8 +5,8 @@ import './App.css';
 
 import Header from './Components/Header/Header';
 import About from './Components/About/About';
-import ShowByYear from './Components/ByYear/ByYear';
-import ShowByCounty from './Components/ByCounty/ByCounty';
+import ShowByYear from './Components/ByYear/ShowByYear';
+import ShowByCounty from './Components/ByCounty/ShowByCounty';
 
 class App extends Component {
   render() {
