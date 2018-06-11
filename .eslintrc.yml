@@ -26,7 +26,13 @@ rules:
     - error
     - always
 globals:
+  global: true
+  process: true
   # Used in tests
   describe: true
   it: true
   expect: true
+  beforeEach: true
+  afterEach: true
+  require: true
+  jest: true
