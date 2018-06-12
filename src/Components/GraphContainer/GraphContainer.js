@@ -2,11 +2,18 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import { PropTypes } from 'prop-types';
 
+import './GraphContainer.css';
+
 let data = {
   datasets: [{
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
   }],
+};
+
+let options = {
+  maintainAspectRatio: false,
+  redraw: true
 };
 
 const GraphContainer = (props) => {
@@ -26,7 +33,7 @@ const GraphContainer = (props) => {
 
   return (
     <div className='graph-container'>
-      <Bar data={data} />
+      <Bar data={data} options={options} />
     </div>
   );
 };
