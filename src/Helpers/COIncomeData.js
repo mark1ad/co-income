@@ -4,12 +4,15 @@ import YearIncome from './YearIncome';
 const tokenParam = '&$$app_token=' + process.env.REACT_APP_COINCOME_TOKEN;
 
 export const GetCountyData = (county, dispatch) => {
-  let params = '?inctype=2&$order=periodyear&areaname=' + county + ' County' + tokenParam;
+  let params = '?$order=periodyear&areaname=' + county + ' County' + tokenParam;
   global.axiosInstance.get(params)
     .then((res) => {
-      const countyData = res.data.map((data) => {
-        return new YearIncome(data);
-      });
+      let countyData = [];
+      for (var i = 0; i < res.data.length; i++) {
+        if (res.data[i].inctype === '2') {
+          countyData.push(new YearIncome(res.data[i]));
+        }
+      }
 
       dispatch(setCounty(county, countyData));
     })

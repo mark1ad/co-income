@@ -27,7 +27,7 @@ const GraphContainer = (props) => {
     });
 
     data.datasets[0].data = props.county.years.map((d) => {
-      return d.income;
+      return d.perCapita;
     });
   }
 
