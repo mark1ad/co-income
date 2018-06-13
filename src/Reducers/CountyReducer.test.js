@@ -13,11 +13,10 @@ describe('CountyReducer', () => {
 
   it('set county', () => {
     const state = {};
-    const action = setCounty( 'Adams', [1960, 1961]);
+    const action = setCounty({name: 'Adams'});
     deepFreeze(state);
     deepFreeze(action);
     const results = County(state, action);
-    expect(results.county).toEqual('Adams');
-    expect(results.years.length).toEqual(2);
+    expect(results.name).toEqual('Adams');
   });
 });

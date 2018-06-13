@@ -31,3 +31,13 @@ it('valid medianHousehold from constructor', () => {
   let record = new YearIncome({periodyear: '1970', income: '4321', inctype: MEDIAN_HOUSEHOLD_INCOME});
   expect(record.medianHousehold).toEqual(4321);
 });
+
+it('update perCapita', () => {
+  yearIncome.update({periodyear: '1970', income: '2345', inctype: PER_CAPITA_INCOME});
+  expect(yearIncome.perCapita).toEqual(2345);
+});
+
+it('update medianHousehold', () => {
+  let record = new YearIncome({periodyear: '1970', income: '6543', inctype: MEDIAN_HOUSEHOLD_INCOME});
+  expect(record.medianHousehold).toEqual(6543);
+});

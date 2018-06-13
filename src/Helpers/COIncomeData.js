@@ -1,5 +1,5 @@
 import { setCounty } from '../Actions/CountyActions';
-import YearIncome from './YearIncome';
+import County from './County';
 
 const tokenParam = '&$$app_token=' + process.env.REACT_APP_COINCOME_TOKEN;
 
@@ -7,14 +7,12 @@ export const GetCountyData = (county, dispatch) => {
   let params = '?$order=periodyear&areaname=' + county + ' County' + tokenParam;
   global.axiosInstance.get(params)
     .then((res) => {
-      let countyData = [];
-      for (var i = 0; i < res.data.length; i++) {
-        if (res.data[i].inctype === '2') {
-          countyData.push(new YearIncome(res.data[i]));
-        }
-      }
+      let countyData = new County(county);
+      res.data.forEach((year) => {
+        countyData.setIncome(year);
+      });
 
-      dispatch(setCounty(county, countyData));
+      dispatch(setCounty(countyData));
     })
     .catch((res) => {
       // TODO: handle failure

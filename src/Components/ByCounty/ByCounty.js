@@ -6,14 +6,14 @@ import './ByCounty.css';
 
 import ShowCountySelectionList from
   '../CountySelectionList/ShowCountySelectionList';
-import ShowGraphContainer from
-  '../GraphContainer/ShowGraphContainer';
+import ShowByCountyGraph from
+  './ShowByCountyGraph';
 
 const ByCounty = (props) => {
   return (
     <div className="by-county">
       <ShowCountySelectionList />
-      <ShowGraphContainer county={props.County} />
+      <ShowByCountyGraph county={props.County} />
     </div>
   );
 };

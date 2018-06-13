@@ -4,12 +4,7 @@ import { PropTypes } from 'prop-types';
 
 import './GraphContainer.css';
 
-let data = {
-  datasets: [{
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-  }],
-};
+let data = {};
 
 let options = {
   maintainAspectRatio: false,
@@ -17,19 +12,8 @@ let options = {
 };
 
 const GraphContainer = (props) => {
-  if (props.county === undefined || props.county.county === undefined ) {
-    data.datasets[0].label = 'None';
-  }
-  else {
-    data.datasets[0].label = props.county.county;
-    data.labels = props.county.years.map((d) => {
-      return d.year;
-    });
-
-    data.datasets[0].data = props.county.years.map((d) => {
-      return d.perCapita;
-    });
-  }
+  data.labels = props.labels;
+  data.datasets = [props.dataset];
 
   return (
     <div className='graph-container'>
@@ -39,7 +23,8 @@ const GraphContainer = (props) => {
 };
 
 GraphContainer.propTypes = {
-  county: PropTypes.object.isRequired
+  dataset: PropTypes.object.isRequired,
+  labels: PropTypes.array.isRequired
 };
 
 export default GraphContainer;

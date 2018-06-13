@@ -6,6 +6,10 @@ class YearIncome {
     this.year = parseInt(data.periodyear, 10);
     this.perCapita = 0;
     this.medianHousehold = 0;
+    this.update(data);
+  }
+
+  update(data) {
     if (data.inctype === PER_CAPITA_INCOME) {
       this.perCapita = parseInt(data.income, 10);
     } else if (data.inctype === MEDIAN_HOUSEHOLD_INCOME) {
