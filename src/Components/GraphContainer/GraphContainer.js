@@ -13,7 +13,7 @@ let options = {
 
 const GraphContainer = (props) => {
   data.labels = props.labels;
-  data.datasets = [props.dataset];
+  data.datasets = props.datasets;
 
   return (
     <div className='graph-container'>
@@ -23,7 +23,7 @@ const GraphContainer = (props) => {
 };
 
 GraphContainer.propTypes = {
-  dataset: PropTypes.object.isRequired,
+  datasets: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired
 };
 

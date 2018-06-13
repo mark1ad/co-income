@@ -2,24 +2,47 @@ import { connect } from 'react-redux';
 
 import GraphContainer from '../GraphContainer/GraphContainer';
 
-const mapStateToProps = (state, props) => {
+let colors = [
+  'rgb(0, 0, 155)',
+  'rgb(200, 50, 50)',
+];
+
+function CreateDataset(label, color, years, getData) {
   let dataset = {
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    label: 'None',
+    backgroundColor: color,
+    borderColor: color,
+    label: label,
     data: []
   };
+  dataset.data = years.map( getData);
+  return dataset;
+
+}
+
+const mapStateToProps = (state, props) => {
+  let datasets = [];
   let labels = [];
   if (props.county !== undefined && props.county.name !== undefined) {
-    dataset.label = props.county.name;
     labels = props.county.years.map((d) => {
       return d.year;
     });
-    dataset.data = props.county.years.map((d) => {
-      return d.perCapita;
-    });
+    datasets = [
+      CreateDataset('Per-Capita',
+        colors[0],
+        props.county.years,
+        (d) => {
+          return d.perCapita;
+        }
+      ),
+      CreateDataset('Median Household',
+        colors[1],
+        props.county.years,
+        (d) => {
+          return d.medianHousehold;
+        })
+    ];
   }
-  return {dataset: dataset, labels: labels};
+  return {datasets: datasets, labels: labels};
 };
 
 const ShowByCountyGraph = connect(
