@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Col, Grid, Row } from 'react-bootstrap';
+
+import './ByCounty.css';
 
 
 import ShowCountySelectionList from
@@ -10,17 +11,9 @@ import ShowGraphContainer from
 
 const ByCounty = (props) => {
   return (
-    <div className="by-county container">
-      <Grid>
-        <Row className="show-grid">
-          <Col xs={4}>
-            <ShowCountySelectionList />
-          </Col>
-          <Col xs={8}>
-            <ShowGraphContainer county={props.County} />
-          </Col>
-        </Row>
-      </Grid>
+    <div className="by-county">
+      <ShowCountySelectionList />
+      <ShowGraphContainer county={props.County} />
     </div>
   );
 };
