@@ -1,0 +1,15 @@
+.by-county {
+  display: flex;
+  margin: 10px;
+  align-items: stretch;
+}
+
+.by-county-graph {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  text-align: center;
+}

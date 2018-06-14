@@ -1,26 +1,24 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Col, Grid, Row } from 'react-bootstrap';
+
+import './ByCounty.css';
 
 
 import ShowCountySelectionList from
   '../CountySelectionList/ShowCountySelectionList';
-import ShowGraphContainer from
-  '../GraphContainer/ShowGraphContainer';
+import ShowByCountyGraph from
+  './ShowByCountyGraph';
 
 const ByCounty = (props) => {
+  let name = (props.County === undefined || props.County.name === undefined)
+    ? 'Select A County' : props.County.name;
   return (
-    <div className="by-county container">
-      <Grid>
-        <Row className="show-grid">
-          <Col xs={4}>
-            <ShowCountySelectionList />
-          </Col>
-          <Col xs={8}>
-            <ShowGraphContainer county={props.County} />
-          </Col>
-        </Row>
-      </Grid>
+    <div className="by-county">
+      <ShowCountySelectionList />
+      <div className="by-county-graph">
+        <h2>{name}</h2>
+        <ShowByCountyGraph county={props.County} />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,19 @@
+.county-selection-list {
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.county-selection-list h3 {
+  margin-top: 10px;
+}
+
+.county-list {
+  border-top: 1px solid lightgrey;
+  text-align: left;
+  padding: 10px;
+  height: 100%;
+  overflow-y: scroll;
+  height: 70vh;
+}
