@@ -11,6 +11,7 @@ export const GetCountyData = (county, dispatch) => {
       res.data.forEach((year) => {
         countyData.setIncome(year);
       });
+      countyData.removeLeadingWithoutData();
 
       dispatch(setCounty(countyData));
     })

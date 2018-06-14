@@ -20,11 +20,11 @@ it('valid perCapita from constructor', () => {
 
 it('valid default perCapita from constructor', () => {
   let record = new YearIncome({periodyear: '1970', income: '1234', inctype: '0'});
-  expect(record.perCapita).toEqual(0);
+  expect(record.perCapita).toEqual(NaN);
 });
 
 it('valid default medianHousehold from constructor', () => {
-  expect(yearIncome.medianHousehold).toEqual(0);
+  expect(yearIncome.medianHousehold).toEqual(NaN);
 });
 
 it('valid medianHousehold from constructor', () => {

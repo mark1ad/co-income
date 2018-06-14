@@ -1,26 +1,30 @@
-import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import React, { Component } from 'react';
+import { Line } from 'react-chartjs-2';
 import { PropTypes } from 'prop-types';
 
 import './GraphContainer.css';
 
-let data = {};
+class GraphContainer extends Component {
+  constructor() {
+    super();
+    this.data = {};
+    this.options = {
+      maintainAspectRatio: false,
+      redraw: true
+    };
+  }
 
-let options = {
-  maintainAspectRatio: false,
-  redraw: true
-};
+  render () {
+    this.data.labels = this.props.labels;
+    this.data.datasets = this.props.datasets;
 
-const GraphContainer = (props) => {
-  data.labels = props.labels;
-  data.datasets = props.datasets;
-
-  return (
-    <div className='graph-container'>
-      <Bar data={data} options={options} />
-    </div>
-  );
-};
+    return (
+      <div className='graph-container'>
+        <Line data={this.data} options={this.options} />
+      </div>
+    );
+  }
+}
 
 GraphContainer.propTypes = {
   datasets: PropTypes.array.isRequired,

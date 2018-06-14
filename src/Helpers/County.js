@@ -17,6 +17,14 @@ class County {
       record.update(data);
     }
   }
+
+  removeLeadingWithoutData() {
+    // Remove years from beginning of array that have no data
+    let firstWithData = this.years.findIndex((yearData) => {
+      return !isNaN(yearData.perCapita) || !isNaN(yearData.medianHousehold);
+    });
+    this.years.splice(0, firstWithData);
+  }
 }
 
 export default County;
