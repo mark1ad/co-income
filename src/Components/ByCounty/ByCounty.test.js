@@ -9,9 +9,11 @@ describe('ByCounty', () => {
     County: 'county'
   };
   let stub;
+  let mockGetDefaultFunc;
 
   beforeEach(() => {
     stub = sinon.stub(console, 'error');
+    mockGetDefaultFunc = jest.fn();
   });
 
   afterEach(() => {
@@ -21,17 +23,29 @@ describe('ByCounty', () => {
   });
 
   it('renders without crashing', () => {
-    shallow(<ByCounty County={county} />);
+    shallow(<ByCounty County={county} getDefaultCounty={mockGetDefaultFunc} />);
   });
 
   it('throws an error if county object is missing', () => {
-    shallow(<ByCounty />);
+    shallow(<ByCounty getDefaultCounty={mockGetDefaultFunc} />);
     expect(stub.calledOnce).toEqual(true);
     expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `County` is marked as required in `ByCounty`, but its value is `undefined`./);
   });
 
   it('does not throw error if County is included', () => {
+    shallow(<ByCounty County={county} getDefaultCounty={mockGetDefaultFunc} />);
+
+    expect(stub.notCalled).toEqual(true);
+  });
+
+  it('throws an error if getDefaultCounty function is missing', () => {
     shallow(<ByCounty County={county} />);
+    expect(stub.calledOnce).toEqual(true);
+    expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `getDefaultCounty` is marked as required in `ByCounty`, but its value is `undefined`./);
+  });
+
+  it('does not throw error if getDefaultCounty is included', () => {
+    shallow(<ByCounty County={county} getDefaultCounty={mockGetDefaultFunc} />);
 
     expect(stub.notCalled).toEqual(true);
   });
