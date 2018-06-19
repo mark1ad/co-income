@@ -17,4 +17,4 @@ it('set yeardata', () => {
   deepFreeze(action);
   const results = YearData(state, action);
   expect(results.year).toEqual('2016');
-})
+});
