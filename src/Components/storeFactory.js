@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { Counties } from '../Reducers/CountiesReducer';
 import { County } from '../Reducers/CountyReducer';
+import { YearData } from '../Reducers/YearDataReducer';
 
 let initStore = {};
 
@@ -26,7 +27,8 @@ const logger = store => next => action  => {
 
 const reducers = {
   County,
-  Counties
+  Counties,
+  YearData
 };
 
 const storeFactory = (initialState = initStore) =>

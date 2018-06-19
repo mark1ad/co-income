@@ -2,8 +2,12 @@ import { connect } from 'react-redux';
 
 import ByYear from './ByYear';
 
+const mapStateToProps = (state) => {
+  return {YearData: state.YearData};
+};
+
 const ShowByYear = connect(
-  null,
+  mapStateToProps,
   null
 ) (ByYear);
 
