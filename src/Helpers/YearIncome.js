@@ -1,3 +1,4 @@
+export const TOTAL_PERSONAL_INCOME = '1';
 export const PER_CAPITA_INCOME = '2';
 export const MEDIAN_HOUSEHOLD_INCOME = '3';
 
@@ -7,6 +8,7 @@ class YearIncome {
     // Chart.js will not display values set to NaN
     this.perCapita = NaN;
     this.medianHousehold = NaN;
+    this.totalPersonalIncome = NaN;
     this.update(data);
   }
 
@@ -18,6 +20,8 @@ class YearIncome {
       }
     } else if (data.inctype === MEDIAN_HOUSEHOLD_INCOME) {
       this.medianHousehold = parseInt(data.income, 10);
+    } else if (data.inctype === TOTAL_PERSONAL_INCOME) {
+      this.totalPersonalIncome = parseInt(data.income, 10);
     }
   }
 }
