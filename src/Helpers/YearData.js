@@ -7,7 +7,7 @@ class YearData {
   }
 
   setIncome(data) {
-    let county = data.county;
+    let county = data.areaname;
     let income = this.incomes.find((d) => {
       return (d.county === county);
     });
