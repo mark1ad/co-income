@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types';
 import './ByYear.css';
 
 import ShowByYearGraph from './ShowByYearGraph';
+import ShowYearSelector from '../YearSelector/ShowYearSelector';
 
 class ByYear extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class ByYear extends Component {
     } else {
       return (
         <div className="by-year">
-          <h2>{this.props.YearData.year}</h2>
+          <ShowYearSelector />
           <div className="by-year-graph">
             <ShowByYearGraph yeardata={this.props.YearData} />
           </div>
