@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 
+import './YearSelector.css';
+
 class YearSelector extends Component {
   constructor(props) {
     super();
@@ -28,9 +30,11 @@ class YearSelector extends Component {
   render() {
     return (
       <div className="year-selector">
-        <select ref={input => this.selection = input} defaultValue={this.year} onChange={this.onDateChange}>
-          {this.years.map(year => (<option key={year} value={year} >{year} </option>))}
-        </select>
+        <div>
+          Income Information for <select ref={input => this.selection = input} defaultValue={this.year} onChange={this.onDateChange}>
+            {this.years.map(year => (<option key={year} value={year} >{year} </option>))}
+          </select>
+        </div>
       </div>
     );
   }

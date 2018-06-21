@@ -1,0 +1,12 @@
+.year-selector {
+  padding: 20px;
+  align-items: center;
+  font-size: x-large;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.year-selector select {
+  font-size: initial;
+}
