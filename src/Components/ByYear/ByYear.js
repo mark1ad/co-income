@@ -14,11 +14,22 @@ class ByYear extends Component {
           <ShowYearSelector />
         </div>
       );
+    } else if (this.props.YearData.incomes.length === 0) {
+      return (
+        <div className="by-year">
+          <ShowYearSelector />
+          <div className="by-year-graph-area by-year-no-data">
+            <div className="by-year-no-data">
+              <h2>No data available for {this.props.YearData.year}</h2>
+            </div>
+          </div>
+        </div>
+      )
     } else {
       return (
         <div className="by-year">
           <ShowYearSelector />
-          <div className="by-year-graph">
+          <div className="by-year-graph-area">
             <ShowByYearGraph yeardata={this.props.YearData} />
           </div>
         </div>

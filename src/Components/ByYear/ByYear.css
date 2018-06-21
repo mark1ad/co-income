@@ -5,11 +5,15 @@
   align-items: stretch;
 }
 
-.by-year-graph {
-  height: 70vh;
+.by-year-graph-area {
+  height: 80vh;
   display: flex;
   align-items: stretch;
   border: 1px solid lightgrey;
   border-radius: 8px;
   text-align: center;
+}
+
+.by-year-no-data {
+  padding: 10px;
 }

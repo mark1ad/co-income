@@ -10,11 +10,13 @@ class YearSelector extends Component {
 
     this.onDateChange = (e) => {
       e.preventDefault();
-      props.onDateChange('2015');
+      props.onDateChange(this.selection.value);
     };
 
     this.defaultYear = '2016';
     this.year = (props.year === '') ? this.defaultYear : props.year;
+
+    this.selection = undefined;
   }
 
   componentDidMount() {
@@ -26,7 +28,7 @@ class YearSelector extends Component {
   render() {
     return (
       <div className="year-selector">
-        <select defaultValue={this.year} onChange={this.onDateChange}>
+        <select ref={input => this.selection = input} defaultValue={this.year} onChange={this.onDateChange}>
           {this.years.map(year => (<option key={year} value={year} >{year} </option>))}
         </select>
       </div>

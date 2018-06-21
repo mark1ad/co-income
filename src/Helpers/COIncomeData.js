@@ -31,7 +31,9 @@ export const getYearData = (year, dispatch) => {
     .then((res) => {
       let yearData = new YearData(year);
       res.data.forEach((year) => {
-        yearData.setIncome(year);
+        if (year.areatype === "4") {
+          yearData.setIncome(year);
+        }
       });
       // yearData.removeLeadingWithoutData();
 
