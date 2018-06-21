@@ -31,7 +31,7 @@ export const getYearData = (year, dispatch) => {
     .then((res) => {
       let yearData = new YearData(year);
       res.data.forEach((year) => {
-        if (year.areatype === "4") {
+        if (year.areatype === '4') {
           yearData.setIncome(year);
         }
       });

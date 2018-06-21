@@ -24,7 +24,7 @@ class ByYear extends Component {
             </div>
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div className="by-year">
