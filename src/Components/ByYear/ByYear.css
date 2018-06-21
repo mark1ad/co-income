@@ -1,0 +1,19 @@
+.by-year {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.by-year-graph-area {
+  height: 72vh;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.by-year-no-data {
+  padding: 10px;
+}

@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import { Counties } from '../Reducers/CountiesReducer';
 import { County } from '../Reducers/CountyReducer';
+import { YearData } from '../Reducers/YearDataReducer';
 
 let initStore = {};
 
@@ -10,14 +11,13 @@ const logger = store => next => action  => {
   /* eslint-disable no-console */
   if (process.env.NODE_ENV === 'development') {
     console.groupCollapsed('dispatching ', action.type);
-    console.log('\n>>> Dispatching ', action.type);
+    console.log('>>> Dispatching ', action.type);
     console.log('prev state ', store.getState());
     console.log('action ', action);
   }
   next(action);
   if (process.env.NODE_ENV === 'development') {
     console.log('next state ', store.getState());
-    console.log('\n');
     console.groupEnd();
   }
   /* eslint-enable no-console */
@@ -26,7 +26,8 @@ const logger = store => next => action  => {
 
 const reducers = {
   County,
-  Counties
+  Counties,
+  YearData
 };
 
 const storeFactory = (initialState = initStore) =>
