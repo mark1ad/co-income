@@ -11,14 +11,13 @@ const logger = store => next => action  => {
   /* eslint-disable no-console */
   if (process.env.NODE_ENV === 'development') {
     console.groupCollapsed('dispatching ', action.type);
-    console.log('\n>>> Dispatching ', action.type);
+    console.log('>>> Dispatching ', action.type);
     console.log('prev state ', store.getState());
     console.log('action ', action);
   }
   next(action);
   if (process.env.NODE_ENV === 'development') {
     console.log('next state ', store.getState());
-    console.log('\n');
     console.groupEnd();
   }
   /* eslint-enable no-console */

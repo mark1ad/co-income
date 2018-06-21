@@ -7,16 +7,12 @@ import ShowByYearGraph from './ShowByYearGraph';
 import ShowYearSelector from '../YearSelector/ShowYearSelector';
 
 class ByYear extends Component {
-  componentDidMount() {
-    if (this.props.getDefaultYearData !== undefined &&
-        (this.props.YearData === undefined || this.props.YearData.year === undefined)) {
-      this.props.getDefaultYearData();
-    }
-  }
   render() {
     if (this.props.YearData === undefined || this.props.YearData.year === undefined) {
       return (
-        <div className="by-year"></div>
+        <div className="by-year">
+          <ShowYearSelector />
+        </div>
       );
     } else {
       return (

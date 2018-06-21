@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import sinon from 'sinon';
 import { shallow } from 'enzyme';
 
@@ -21,8 +20,7 @@ afterEach(() => {
 });
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} />, div);
+  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} />);
 });
 
 it('throws an error if yeardata object is missing', () => {
