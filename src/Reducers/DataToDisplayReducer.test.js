@@ -8,7 +8,7 @@ it('DataToDisplay default', () => {
   const action = { type: ''};
   deepFreeze(action);
   const results = DataToDisplay(undefined, action);
-  expect(results).toEqual({'1': false, '2': true, '3': false});
+  expect(Object.keys(results).length).toEqual(3);
 });
 
 it('add type to display', () => {
@@ -18,7 +18,7 @@ it('add type to display', () => {
   deepFreeze(state);
   deepFreeze(action);
   const results = DataToDisplay(state, action);
-  expect(results[MEDIAN_HOUSEHOLD_TYPE]).toEqual(true);
+  expect(results[MEDIAN_HOUSEHOLD_TYPE].displayed).toEqual(true);
 });
 
 it('remove type to display', () => {
@@ -30,5 +30,5 @@ it('remove type to display', () => {
   deepFreeze(state);
   deepFreeze(action);
   const results = DataToDisplay(state, action);
-  expect(results[MEDIAN_HOUSEHOLD_TYPE]).toEqual(false);
+  expect(results[MEDIAN_HOUSEHOLD_TYPE].displayed).toEqual(false);
 });

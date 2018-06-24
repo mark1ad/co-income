@@ -1,9 +1,14 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
-const MyCheckbox = () => {
+const MyCheckbox = ({label}) => {
   return (
-    <div>MyCheckbox</div>
+    <div>{label}</div>
   );
+};
+
+MyCheckbox.propTypes = {
+  label: PropTypes.string.isRequired
 };
 
 export default MyCheckbox;
