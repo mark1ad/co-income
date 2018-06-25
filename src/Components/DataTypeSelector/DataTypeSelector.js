@@ -9,7 +9,7 @@ const DataTypeSelector = ({dataToDisplay}) => {
   return (
     <div className='data-type-selector'>
       {Object.keys(checkboxs).map((d) => {
-        return (<ShowMyCheckbox key={d} dataTypeInfo={checkboxs[d]} />);
+        return (<ShowMyCheckbox key={d} dataType={d} dataTypeInfo={checkboxs[d]} />);
       })}
     </div>
   );
