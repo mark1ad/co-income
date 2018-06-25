@@ -34,7 +34,7 @@ class ByYear extends Component {
           <ShowYearSelector />
           <ShowDataTypeSelector />
           <div className="by-year-graph-area">
-            <ShowByYearGraph yeardata={this.props.YearData} />
+            <ShowByYearGraph yeardata={this.props.YearData} dataTypeInfo={this.props.dataTypeInfo} />
           </div>
         </div>
       );
@@ -43,8 +43,9 @@ class ByYear extends Component {
 }
 
 ByYear.propTypes = {
+  dataTypeInfo: PropTypes.object.isRequired,
   YearData: PropTypes.object.isRequired,
-  getDefaultYearData: PropTypes.func.isRequired
+  getDefaultYearData: PropTypes.func.isRequired,
 };
 
 export default ByYear;

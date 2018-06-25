@@ -4,7 +4,10 @@ import ByYear from './ByYear';
 import { getYearData } from '../../Helpers/COIncomeData';
 
 const mapStateToProps = (state) => {
-  return {YearData: state.YearData};
+  return {
+    YearData: state.YearData,
+    dataTypeInfo: state.DataToDisplay
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
