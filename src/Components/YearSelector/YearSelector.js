@@ -30,11 +30,10 @@ class YearSelector extends Component {
   render() {
     return (
       <div className="year-selector">
-        <div>
-          Income Information for <select ref={input => this.selection = input} defaultValue={this.year} onChange={this.onDateChange}>
-            {this.years.map(year => (<option key={year} value={year} >{year} </option>))}
-          </select>
-        </div>
+        Income Information for
+        <select ref={input => this.selection = input} defaultValue={this.year} onChange={this.onDateChange}>
+          {this.years.map(year => (<option key={year} value={year} >{year} </option>))}
+        </select>
       </div>
     );
   }

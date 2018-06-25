@@ -1,11 +1,7 @@
 import { connect } from 'react-redux';
 
 import GraphContainer from '../GraphContainer/GraphContainer';
-
-let colors = [
-  'rgb(0, 0, 155)',
-  'rgb(200, 50, 50)',
-];
+import {colors} from '../../Helpers/Colors';
 
 function CreateDataset(label, color, years, getData) {
   let dataset = {
@@ -32,15 +28,20 @@ const mapStateToProps = (state, props) => {
       return d.county.replace(' County', '');
     });
 
-    datasets = [
-      CreateDataset('Per-Capita',
-        colors[0],
-        props.yeardata.incomes,
-        (d) => {
-          return d.income.perCapita;
-        }
-      )
-    ];
+    Object.keys(props.dataTypeInfo).forEach((dataType) => {
+      let temp = props.dataTypeInfo[dataType];
+      if (temp.displayed) {
+        datasets.push(
+          CreateDataset(temp.label,
+            colors[dataType],
+            props.yeardata.incomes,
+            (d) => {
+              return (d.income[dataType] === undefined) ? NaN : d.income[dataType];
+            }
+          )
+        );
+      }
+    });
   }
 
   return { datasets: datasets, labels: labels };

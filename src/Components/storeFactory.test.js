@@ -2,6 +2,8 @@ import storeFactory from './storeFactory';
 import { setCounties } from '../Actions/CountiesActions';
 import { setCounty } from '../Actions/CountyActions';
 import { setYearData } from '../Actions/YearDataActions';
+import { addDataToDisplay } from '../Actions/DataToDisplayActions';
+import { PER_CAPITA_TYPE } from '../Helpers/DataTypes.js';
 
 let store;
 
@@ -23,6 +25,8 @@ describe('store counties', () => {
 
 });
 
+// *************************
+
 it('should set county', () => {
   store.dispatch(setCounty({name: 'Adams'}));
   expect(store.getState().County.name).toEqual('Adams');
@@ -31,4 +35,9 @@ it('should set county', () => {
 it('should set year data', () => {
   store.dispatch(setYearData({year: '2016'}));
   expect(store.getState().YearData.year).toEqual('2016');
+});
+
+it('should add data to display', () => {
+  store.dispatch(addDataToDisplay(PER_CAPITA_TYPE));
+  expect(store.getState().DataToDisplay).toBeDefined();
 });

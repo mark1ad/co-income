@@ -23,6 +23,8 @@ class YearIncome {
     } else if (data.inctype === TOTAL_PERSONAL_INCOME) {
       this.totalPersonalIncome = parseInt(data.income, 10);
     }
+
+    this[data.inctype] = data.income === 0 ? NaN : parseInt(data.income, 10);
   }
 }
 

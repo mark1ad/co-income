@@ -20,23 +20,29 @@ afterEach(() => {
 });
 
 it('renders without crashing', () => {
-  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} />);
+  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} dataTypeInfo={{}} />);
 });
 
 it('throws an error if yeardata object is missing', () => {
-  shallow(<ByYear getDefaultYearData={mockGetDefaultFunc} />);
+  shallow(<ByYear getDefaultYearData={mockGetDefaultFunc} dataTypeInfo={{}} />);
   expect(stub.calledOnce).toEqual(true);
   expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `YearData` is marked as required in `ByYear`, but its value is `undefined`./);
 });
 
 it('does not throw error if YearData is included', () => {
-  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} />);
+  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} dataTypeInfo={{}} />);
 
   expect(stub.notCalled).toEqual(true);
 });
 
 it('throws an error if getDefaultYearData function is missing', () => {
-  shallow(<ByYear YearData={yeardata} />);
+  shallow(<ByYear YearData={yeardata} dataTypeInfo={{}} />);
   expect(stub.calledOnce).toEqual(true);
   expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `getDefaultYearData` is marked as required in `ByYear`, but its value is `undefined`./);
+});
+
+it('throws an error if dataTypeInfo is missing', () => {
+  shallow(<ByYear YearData={yeardata} getDefaultYearData={mockGetDefaultFunc} />);
+  expect(stub.calledOnce).toEqual(true);
+  expect(stub.args[0][0]).toMatch(/Warning: Failed prop type: The prop `dataTypeInfo` is marked as required in `ByYear`, but its value is `undefined`./);
 });

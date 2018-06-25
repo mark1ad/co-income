@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Counties } from '../Reducers/CountiesReducer';
 import { County } from '../Reducers/CountyReducer';
 import { YearData } from '../Reducers/YearDataReducer';
+import DataToDisplay from '../Reducers/DataToDisplayReducer';
 
 let initStore = {};
 
@@ -27,7 +28,8 @@ const logger = store => next => action  => {
 const reducers = {
   County,
   Counties,
-  YearData
+  YearData,
+  DataToDisplay
 };
 
 const storeFactory = (initialState = initStore) =>
