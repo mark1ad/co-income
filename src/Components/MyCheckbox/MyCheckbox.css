@@ -1,0 +1,10 @@
+.my-checkbox {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-checkbox input[type="checkbox"] {
+  margin: 0 0 0 .4em;
+}

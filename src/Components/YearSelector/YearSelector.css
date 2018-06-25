@@ -1,6 +1,7 @@
 .year-selector {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   font-size: x-large;
   border: 1px solid lightgrey;
@@ -10,10 +11,4 @@
 .year-selector select {
   font-size: initial;
   margin-left: .4em;
-}
-
-.select-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

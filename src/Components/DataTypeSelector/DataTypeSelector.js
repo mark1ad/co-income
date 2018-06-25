@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+import './DataTypeSelector.css';
 import ShowMyCheckbox from '../MyCheckbox/ShowMyCheckbox';
 
 const DataTypeSelector = ({dataToDisplay}) => {

@@ -1,0 +1,9 @@
+.data-type-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: large;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+}
