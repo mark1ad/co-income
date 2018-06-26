@@ -4,12 +4,26 @@
   align-items: stretch;
 }
 
+.by-county-header {
+  padding: 20px;
+  font-size: x-large;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+  text-align: center;
+}
+
 .by-county-graph {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.by-county-graph-area {
   display: flex;
   align-items: stretch;
   flex-direction: column;
   flex-grow: 1;
   border: 1px solid lightgrey;
   border-radius: 8px;
-  text-align: center;
 }
