@@ -4,7 +4,10 @@ import ByCounty from './ByCounty';
 import { GetCountyData } from '../../Helpers/COIncomeData';
 
 const mapStateToProps = (state) => {
-  return {County: state.County};
+  return {
+    County: state.County,
+    dataTypeInfo: state.DataToDisplay
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

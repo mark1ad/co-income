@@ -33,7 +33,7 @@ class ByCounty extends Component {
             </div>
             <ShowDataTypeSelector />
             <div className="by-county-graph-area">
-              <ShowByCountyGraph county={this.props.County} />
+              <ShowByCountyGraph county={this.props.County} dataTypeInfo={this.props.dataTypeInfo} />
             </div>
           </div>
         </div>
@@ -43,6 +43,7 @@ class ByCounty extends Component {
 }
 
 ByCounty.propTypes = {
+  dataTypeInfo: PropTypes.object.isRequired,
   County: PropTypes.object.isRequired,
   getDefaultCounty: PropTypes.func.isRequired
 };

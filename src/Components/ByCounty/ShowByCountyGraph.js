@@ -1,28 +1,8 @@
 import { connect } from 'react-redux';
 
 import GraphContainer from '../GraphContainer/GraphContainer';
-
-let colors = [
-  'rgb(0, 0, 155)',
-  'rgb(200, 50, 50)',
-];
-
-function CreateDataset(label, color, years, getData) {
-  let dataset = {
-    fill: false,
-    spanGaps: true,
-    lineTension: 0,
-    pointHoverBorderColor: 'rgba(220, 220, 220, 1)',
-    pointHoverBorderWidth: 2,
-    backgroundColor: color,
-    borderColor: color,
-    label: label,
-    data: []
-  };
-  dataset.data = years.map( getData);
-  return dataset;
-
-}
+import { colors } from '../../Helpers/Colors';
+import { CreateDataset } from '../../Helpers/DatasetUtils';
 
 const mapStateToProps = (state, props) => {
   let datasets = [];
@@ -31,21 +11,20 @@ const mapStateToProps = (state, props) => {
     labels = props.county.years.map((d) => {
       return d.year;
     });
-    datasets = [
-      CreateDataset('Per-Capita',
-        colors[0],
-        props.county.years,
-        (d) => {
-          return d.perCapita;
-        }
-      ),
-      CreateDataset('Median Household',
-        colors[1],
-        props.county.years,
-        (d) => {
-          return d.medianHousehold;
-        })
-    ];
+    Object.keys(props.dataTypeInfo).forEach((dataType) => {
+      let temp = props.dataTypeInfo[dataType];
+      if (temp.displayed) {
+        datasets.push(
+          CreateDataset(temp.label,
+            colors[dataType],
+            props.county.years,
+            (d) => {
+              return (d[dataType] === undefined || d[dataType] === 0) ? NaN : d[dataType];
+            }
+          )
+        );
+      }
+    });
   }
   return {datasets: datasets, labels: labels};
 };
